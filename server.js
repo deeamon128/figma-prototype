@@ -1,21 +1,23 @@
-// 1. Import modules
 import express from "express";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
+
+// Enable CORS for all origins
+app.use(cors());
+
 app.use(express.json());
 
-// 2. Test route
 app.get("/", (req, res) => {
     res.send("Server is working!");
 });
 
-// 3. GPT endpoint
 app.post("/chat", async (req, res) => {
     try {
-        const { message } = req.body; // read 'message' from JSON
+        const { message } = req.body;
 
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -37,6 +39,5 @@ app.post("/chat", async (req, res) => {
     }
 });
 
-// 4. Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
