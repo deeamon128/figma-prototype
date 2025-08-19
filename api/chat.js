@@ -32,7 +32,7 @@ Keep tone premium yet relaxed — never robotic or overly formal. Responses shou
 `;
 
         const gptResponse = await client.chat.completions.create({
-            model: "gpt-4.1",
+            model: "gpt-4o-mini",
             messages: [
                 { role: "system", content: systemPrompt },
                 { role: "user", content: message }
