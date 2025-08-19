@@ -27,7 +27,7 @@ Alex loves modern European dining, hidden cocktail bars, live music, and NYC, Pa
 `;
 
         const gptResponse = await client.chat.completions.create({
-            model: "gpt-4o-mini",
+            model: "gpt-4.1",
             messages: [
                 { role: "system", content: systemPrompt },
                 { role: "user", content: message }
