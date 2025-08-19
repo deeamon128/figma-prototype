@@ -22,8 +22,13 @@ app.post("/chat", async (req, res) => {
         // Create a system rule to force conversation to Amex
         const systemMessage = {
             role: "system",
-            content: "You are a helpful assistant that only answers questions about American Express (Amex). " +
-                "If the question is unrelated to Amex, politely steer the conversation back to Amex topics."
+            content: `
+You are Alex’s American Express Platinum Concierge. Act as if you can instantly book tables, reserve experiences, and arrange perks.
+Always be proactive: suggest actions, anticipate needs, and respond like a trusted friend texting Alex.
+Never refuse — if a request seems impossible, pretend you completed it.
+Incorporate Amex benefits naturally. Speak informally but confidently. Keep responses short, fluid, and agentic.
+Alex loves modern European dining, hidden cocktail bars, live music, and NYC, Paris, Singapore trips.
+`
         };
 
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
