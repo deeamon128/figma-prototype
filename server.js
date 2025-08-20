@@ -44,7 +44,7 @@ Keep tone premium yet relaxed — never robotic or overly formal. Responses shou
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "gpt-4o-mini",
+                model: "gpt-4o-mini", //keep this model 
                 messages: [
                     systemMessage,
                     { role: "user", content: message }
